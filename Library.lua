@@ -23,6 +23,27 @@ local Options = {};
 getgenv().Toggles = Toggles;
 getgenv().Options = Options;
 
+
+if isfile("Project X/ProggyClean.ttf") then
+    delfile("Project X/ProggyClean.ttf")
+end
+
+writefile("Project X/ProggyClean.ttf", game:HttpGet("https://github.com/cutelilfemboy12/Resources/raw/refs/heads/main/ProggyClean.ttf"))
+
+local ProggyClean = {
+    name = "ProggyClean",
+    faces = {
+        {
+            name = "Regular",
+            weight = 400,
+            style = "normal",
+            assetId = getcustomasset("Project X V3/ProggyClean.ttf")
+        }
+    }
+}
+
+writefile("Project X/ProggyClean.font", game:GetService("HttpService"):JSONEncode(ProggyClean))
+
 local Library = {
     Registry = {};
     RegistryMap = {};
@@ -147,6 +168,7 @@ function Library:CreateLabel(Properties, IsHud)
     local _Instance = Library:Create('TextLabel', {
         BackgroundTransparency = 1;
         Font = Library.Font;
+        FontFace = Font.new(getcustomasset("Project X/ProggyClean.font"), Enum.FontWeight.Regular);
         TextColor3 = Library.FontColor;
         TextSize = 16;
         TextStrokeTransparency = 0;
