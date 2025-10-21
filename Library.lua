@@ -37,7 +37,7 @@ local ProggyClean = {
             name = "Regular",
             weight = 400,
             style = "normal",
-            assetId = getcustomasset("Project X V3/ProggyClean.ttf")
+            assetId = getcustomasset("Project X/ProggyClean.ttf")
         }
     }
 }
