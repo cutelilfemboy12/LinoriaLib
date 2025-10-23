@@ -1,3 +1,4 @@
+
 local InputService = game:GetService('UserInputService');
 local TextService = game:GetService('TextService');
 local CoreGui = game:GetService('CoreGui');
@@ -2662,41 +2663,14 @@ do
             for _, Dependency in next, Depbox.Dependencies do
                 local Elem = Dependency[1];
                 local Value = Dependency[2];
-        
-                if Elem.Type == 'Toggle' then
-                    if Elem.Value ~= Value then
-                        Holder.Visible = false;
-                        Depbox:Resize();
-                        return;
-                    end;
-                elseif Elem.Type == 'Dropdown' then
-                    local selected = Elem.Value;
-                    if typeof(selected) == 'table' then
-                        if typeof(Value) == 'table' then
-                            for _, v in next, Value do
-                                if not table.find(selected, v) then
-                                    Holder.Visible = false;
-                                    Depbox:Resize();
-                                    return;
-                                end;
-                            end;
-                        else
-                            if not table.find(selected, Value) then
-                                Holder.Visible = false;
-                                Depbox:Resize();
-                                return;
-                            end;
-                        end;
-                    else
-                        if selected ~= Value then
-                            Holder.Visible = false;
-                            Depbox:Resize();
-                            return;
-                        end;
-                    end;
+
+                if Elem.Type == 'Toggle' and Elem.Value ~= Value then
+                    Holder.Visible = false;
+                    Depbox:Resize();
+                    return;
                 end;
             end;
-        
+
             Holder.Visible = true;
             Depbox:Resize();
         end;
