@@ -1037,7 +1037,7 @@ do
             Type = 'KeyPicker';
             Callback = Info.Callback or function(Value) end;
             ChangedCallback = Info.ChangedCallback or function(New) end;
-
+            NoUI = Info.NoUI;
             SyncToggleState = Info.SyncToggleState or false;
         };
 
@@ -1223,11 +1223,6 @@ do
             DisplayLabel.Text = Key;
             KeyPicker.Value = Key;
             ModeButtons[Mode]:Select();
-            KeyPicker:Update();
-        end;
-
-        function KeyPicker:SetNoUI(Bool)
-            Info.NoUI = Bool;
             KeyPicker:Update();
         end;
         
