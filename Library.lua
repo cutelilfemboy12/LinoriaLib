@@ -1241,6 +1241,7 @@ do
                 if PickOuter then
                     PickOuter.Active = false;
                 end;
+                KeyPicker:Update()
             else
                 if ContainerLabel then
                     ContainerLabel.Visible = true;
