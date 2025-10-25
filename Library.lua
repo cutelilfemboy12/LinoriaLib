@@ -1232,9 +1232,6 @@ do
                 if ContainerLabel then
                     ContainerLabel.Visible = false;
                 end;
-                if DisplayLabel then
-                    DisplayLabel.Visible = false;
-                end;
                 if ModeSelectOuter then
                     ModeSelectOuter.Visible = false;
                 end;
@@ -1245,9 +1242,6 @@ do
             else
                 if ContainerLabel then
                     ContainerLabel.Visible = true;
-                end;
-                if DisplayLabel then
-                    DisplayLabel.Visible = true;
                 end;
                 if PickOuter then
                     PickOuter.Active = true;
