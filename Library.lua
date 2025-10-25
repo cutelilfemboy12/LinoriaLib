@@ -1224,6 +1224,11 @@ do
             ModeButtons[Mode]:Select();
             KeyPicker:Update();
         end;
+
+        function KeyPicker:SetNoUI(Bool)
+            KeyPicker.NoUI = Bool
+            KeyPicker:Update();
+        end;
         
         function KeyPicker:OnClick(Callback)
             KeyPicker.Clicked = Callback
