@@ -1184,14 +1184,20 @@ do
         
             local YSize = 0
             local XSize = 0
+            local Count = 0
         
             for _, Label in next, Library.KeybindContainer:GetChildren() do
                 if Label:IsA('TextLabel') and Label.Visible then
-                    YSize = YSize + Label.TextBounds.Y
+                    Count = Count + 1
+                    YSize = YSize + Label.TextBounds.Y + 2
                     if Label.TextBounds.X > XSize then
                         XSize = Label.TextBounds.X
                     end
                 end
+            end
+        
+            if Count == 0 then
+                YSize = 0
             end
         
             Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 24)
