@@ -1172,33 +1172,29 @@ do
             if KeyPicker.NoUI then
                 return;
             end;
-
+        
             local State = KeyPicker:GetState();
-
+        
             ContainerLabel.Text = string.format('[%s] %s (%s)', KeyPicker.Value, Info.Text, KeyPicker.Mode);
-
+        
             ContainerLabel.Visible = true;
             ContainerLabel.TextColor3 = State and Library.AccentColor or Library.FontColor;
-
+        
             Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
-
+        
             local YSize = 0
             local XSize = 0
-
+        
             for _, Label in next, Library.KeybindContainer:GetChildren() do
-                if Label:IsA('TextLabel') then
-                    if Label.Visible then
-                        YSize = YSize + 20;
-                        if (Label.TextBounds.X > XSize) then
-                            XSize = Label.TextBounds.X
-                        end
-                    else
-                        YSize = YSize - 20;
+                if Label:IsA('TextLabel') and Label.Visible then
+                    YSize = YSize + Label.TextBounds.Y
+                    if Label.TextBounds.X > XSize then
+                        XSize = Label.TextBounds.X
                     end
-                end;
-            end;
-
-            Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 25)
+                end
+            end
+        
+            Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 24)
         end;
 
         function KeyPicker:GetState()
