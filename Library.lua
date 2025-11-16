@@ -1186,10 +1186,14 @@ do
             local XSize = 0
 
             for _, Label in next, Library.KeybindContainer:GetChildren() do
-                if Label:IsA('TextLabel') and Label.Visible then
-                    YSize = YSize + 20;
-                    if (Label.TextBounds.X > XSize) then
-                        XSize = Label.TextBounds.X
+                if Label:IsA('TextLabel') then
+                    if Label.Visible then
+                        YSize = YSize + 20;
+                        if (Label.TextBounds.X > XSize) then
+                            XSize = Label.TextBounds.X
+                        end
+                    else
+                        YSize = YSize - 20;
                     end
                 end;
             end;
